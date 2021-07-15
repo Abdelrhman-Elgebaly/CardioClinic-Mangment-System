@@ -1,0 +1,396 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1A29FD3A-8FA6-438B-86FB-FF01D0C92E32}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>CardioClinic</RootNamespace>
+    <AssemblyName>CardioClinic</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Hl7.Fhir.ElementModel, Version=3.4.0.0, Culture=neutral, PublicKeyToken=d706911480550fc3, processorArchitecture=MSIL">
+      <HintPath>..\packages\Hl7.Fhir.ElementModel.3.4.0\lib\net45\Hl7.Fhir.ElementModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Hl7.Fhir.R4.Core, Version=3.4.0.0, Culture=neutral, PublicKeyToken=d706911480550fc3, processorArchitecture=MSIL">
+      <HintPath>..\packages\Hl7.Fhir.R4.3.4.0\lib\net45\Hl7.Fhir.R4.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Hl7.Fhir.Serialization, Version=3.4.0.0, Culture=neutral, PublicKeyToken=d706911480550fc3, processorArchitecture=MSIL">
+      <HintPath>..\packages\Hl7.Fhir.Serialization.3.4.0\lib\net45\Hl7.Fhir.Serialization.dll</HintPath>
+    </Reference>
+    <Reference Include="Hl7.Fhir.Support, Version=3.4.0.0, Culture=neutral, PublicKeyToken=d706911480550fc3, processorArchitecture=MSIL">
+      <HintPath>..\packages\Hl7.Fhir.Support.3.4.0\lib\net45\Hl7.Fhir.Support.dll</HintPath>
+    </Reference>
+    <Reference Include="Hl7.Fhir.Support.Poco, Version=3.4.0.0, Culture=neutral, PublicKeyToken=d706911480550fc3, processorArchitecture=MSIL">
+      <HintPath>..\packages\Hl7.Fhir.Support.Poco.3.4.0\lib\net45\Hl7.Fhir.Support.Poco.dll</HintPath>
+    </Reference>
+    <Reference Include="Hl7.FhirPath, Version=3.4.0.0, Culture=neutral, PublicKeyToken=d706911480550fc3, processorArchitecture=MSIL">
+      <HintPath>..\packages\Hl7.FhirPath.3.4.0\lib\net45\Hl7.FhirPath.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1449.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1449.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1449.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1449.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportViewer.WebForms.10.0.40219.1\lib\Microsoft.ReportViewer.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1449.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.IO, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.4.3.0\lib\net462\System.IO.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http, Version=4.1.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.4.3.4\lib\net46\System.Net.Http.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.4.3.0\lib\net462\System.Runtime.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Algorithms.4.3.0\lib\net463\System.Security.Cryptography.Algorithms.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.X509Certificates.4.3.0\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BLL\account.cs" />
+    <Compile Include="BLL\AccountBLL.cs" />
+    <Compile Include="BLL\PatientDataModel.cs" />
+    <Compile Include="BLL\ReservationBLL.cs" />
+    <Compile Include="BLL\utils.cs" />
+    <Compile Include="BLL\VisitBLL.cs" />
+    <Compile Include="DAL\AccountDAL.cs" />
+    <Compile Include="DAL\PatientDAL.cs" />
+    <Compile Include="DAL\ReservationDAL.cs" />
+    <Compile Include="DataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Home\DoctorHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Home\DoctorHome.Designer.cs">
+      <DependentUpon>DoctorHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Home\ReportsHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Home\ReportsHome.Designer.cs">
+      <DependentUpon>ReportsHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Home\ReservationHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Home\ReservationHome.Designer.cs">
+      <DependentUpon>ReservationHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Home\SecretaryHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Home\SecretaryHome.Designer.cs">
+      <DependentUpon>SecretaryHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Login\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Login\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Pages\AdminPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Pages\AdminPage.Designer.cs">
+      <DependentUpon>AdminPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Pages\CreateReservationsPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Pages\CreateReservationsPage.Designer.cs">
+      <DependentUpon>CreateReservationsPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Pages\EditAccountPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Pages\EditAccountPage.Designer.cs">
+      <DependentUpon>EditAccountPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Pages\EditReservatinsPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Pages\EditReservatinsPage.Designer.cs">
+      <DependentUpon>EditReservatinsPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Reports\PatientsReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Reports\PatientsReport.Designer.cs">
+      <DependentUpon>PatientsReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Reports\ReservationReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Reports\ReservationReport.Designer.cs">
+      <DependentUpon>ReservationReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Pages\PatientPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Pages\PatientPage.Designer.cs">
+      <DependentUpon>PatientPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Pages\VisitsPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Pages\VisitsPage.Designer.cs">
+      <DependentUpon>VisitsPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Pages\ViewReservationsPages.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Pages\ViewReservationsPages.Designer.cs">
+      <DependentUpon>ViewReservationsPages.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Reports\StaffReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Reports\StaffReport.Designer.cs">
+      <DependentUpon>StaffReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Reports\VisitsReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Reports\VisitsReport.Designer.cs">
+      <DependentUpon>VisitsReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="VDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VDataSet2.xsd</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="GUI\Home\DoctorHome.resx">
+      <DependentUpon>DoctorHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Home\ReportsHome.resx">
+      <DependentUpon>ReportsHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Home\ReservationHome.resx">
+      <DependentUpon>ReservationHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Home\SecretaryHome.resx">
+      <DependentUpon>SecretaryHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Login\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Pages\AdminPage.resx">
+      <DependentUpon>AdminPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Pages\CreateReservationsPage.resx">
+      <DependentUpon>CreateReservationsPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Pages\EditAccountPage.resx">
+      <DependentUpon>EditAccountPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Pages\EditReservatinsPage.resx">
+      <DependentUpon>EditReservatinsPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Reports\PatientsReport.resx">
+      <DependentUpon>PatientsReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Reports\ReservationReport.resx">
+      <DependentUpon>ReservationReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Pages\PatientPage.resx">
+      <DependentUpon>PatientPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Pages\VisitsPage.resx">
+      <DependentUpon>VisitsPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Pages\ViewReservationsPages.resx">
+      <DependentUpon>ViewReservationsPages.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Reports\StaffReport.resx">
+      <DependentUpon>StaffReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Reports\VisitsReport.resx">
+      <DependentUpon>VisitsReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Report1.rdlc" />
+    <EmbeddedResource Include="Report2.rdlc" />
+    <EmbeddedResource Include="Report3.rdlc" />
+    <EmbeddedResource Include="Report4.rdlc" />
+    <None Include="DataSet1.xsc">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet1.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSet1.xss">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="PDataSet.xsc">
+      <DependentUpon>PDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="PDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="PDataSet.xss">
+      <DependentUpon>PDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\DataSources\CardioClinic.BLL.VisitBLL.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="SDataSet2.xsc">
+      <DependentUpon>SDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="SDataSet2.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SDataSet2.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="SDataSet2.xss">
+      <DependentUpon>SDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="VDataSet2.xsc">
+      <DependentUpon>VDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="VDataSet2.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>VDataSet2.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="VDataSet2.xss">
+      <DependentUpon>VDataSet2.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
